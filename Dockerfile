@@ -1,4 +1,4 @@
-FROM golang:1.10-alpine AS build
+FROM golang:1.13-alpine AS build
 
 LABEL maintainer="yyoshiki41@gmail.com"
 
@@ -19,7 +19,7 @@ WORKDIR ${PROJECT_PATH}
 COPY . ${PROJECT_PATH}/
 
 # Install deps
-RUN make installdeps
+RUN make install-mod
 # Build the project binary
 RUN make build-4-docker
 
